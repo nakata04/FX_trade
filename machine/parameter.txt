@@ -1,0 +1,108 @@
+# < =========================   DEVELOPER'S NOTE   ========================= > #
+#                                                                              #
+#  last updated   : 8/8/2020                                                   #
+#  parameter file : parameter.txt                                              #
+#                                                                              #
+#                                                                              #
+#  This file sets the eternal parameter in these codes.                        #
+#                                                                              #
+#  Skip lines starting with "#" or line breaks.                                #
+#  When performing parallel calculation to create the data in the figure,      #
+#  it is better to make the number of array divisible by the number of cores.  #
+#                                                                              #
+#                                                                              #
+# > ======================================================================== < #
+
+base_dir        = .
+data_dir        = ./data
+fx_data_ori     = ./USDJPY_1997_2017.csv
+fx_data_pre     = ./USDJPY_pre.txt
+fx_deep_res     = ./FX_deep.txt
+
+# experience good model (BIN,PAST) = (15,8192), (30,4096)
+
+# RUN             = 0
+RUN             = 1
+
+### data type ###
+# FX_PAIR         = EURJPY
+FX_PAIR         = USDJPY
+# FX_PAIR         = AUDJPY
+# FX_PAIR         = EURUSD
+# DATA_BIN        = M1
+DATA_BIN        = H1
+# DATA_BIN        = D
+DATA_FORMAT     = csv
+
+
+### OPTION ###
+
+# NEW_ML_CONF     = 0   ## 0:OFF  1:O
+NEW_ML_CONF     = 1   ## 0:OFF  1:O
+# RESTART         = 0
+RESTART         = 1
+
+
+TRIAL           = 25
+PIPS_THRESHOLD  = 0
+
+# BIN             = 24       # minute unit
+# BIN             = 12       # minute unit
+BIN             = 8       # minute unit
+# BIN             = 6       # minute unit
+# BIN             = 4       # minute unit
+# BIN             = 2       # minute unit
+# BIN             = 1       # minute unit
+# BIN             = 15       # minute unit
+# BIN             = 50       # minute unit
+
+# ================================================== #
+#                                                    #
+#  The condition when you set the parameter "PAST"   #
+#  1. bigger than 200                                #
+#     this code uses 200 bin average                 #
+#  2. set to a power of 2                            #
+#     required for fft                               #
+#  ex) 256, 512 1024, ...                            #
+#                                                    #
+# ================================================== #
+
+# PAST            = 10906
+# PAST            = 10000
+# PAST            = 16384
+# PAST            = 8192
+# PAST            = 4096
+# PAST            = 2048
+# PAST            = 1024
+PAST            = 512
+# PAST            = 256
+# PAST            = 128
+# PAST            = 32
+
+
+
+FUTURE          = 1      # bin number (defolt : 1)
+N_WEIGHT        = 13
+WEIGHT_DAY      = 15
+LEARNING_BIN    = 30 # 25
+MACHINE_DAY     = 100 # 50
+DEEP_DAY        = 100
+# LEARNING_RATE   = 0.01
+LEARNING_RATE   = 0.0097 # EUR?USD
+# LEARNING_RATE   = 0.007
+# LEARNING_RATE   = 0.0003
+# LEARNING_RATE   = 0.0001
+# LEARNING_RATE   = 0.0000405 ## USD
+# LEARNING_RATE   = 0.00003
+# LEARNING_RATE   = 0.000021
+# LEARNING_RATE   = 0.0000025
+ML_THRESHOLD    = 1.0e-4
+RELIABILITY     = 2.0e-6
+# RELIABILITY     = 0.01
+
+SAMPLE_LINE     = 2
+# SAMPLE_LINE     = 703
+# SAMPLE_LINE     = 2400
+ML_TRIAL        = 20000
+
+TIME_ADJUST     = 540
